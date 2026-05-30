@@ -1,513 +1,644 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Febin Sani | Cybersecurity Professional</title>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --bg:#0a0e13;--bg2:#0f1419;--bg3:#141c24;
-  --green:#00ff9d;--gold:#ffd700;
-  --text:#e2e8f0;--muted:#64748b;--border:#1e2d3d;
-  --mono:'Share Tech Mono',monospace;--sans:'Syne',sans-serif;
-}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden;}
-::-webkit-scrollbar{width:4px;}
-::-webkit-scrollbar-track{background:var(--bg);}
-::-webkit-scrollbar-thumb{background:var(--green);border-radius:2px;}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,14,19,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
-.nav-logo{font-family:var(--mono);font-size:16px;color:var(--green);}
-.nav-links{display:flex;gap:24px;flex-wrap:wrap;}
-.nav-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.05em;transition:color 0.2s;}
-.nav-links a:hover{color:var(--green);}
-.hero{min-height:100vh;display:flex;align-items:center;padding:100px 40px 60px;position:relative;overflow:hidden;}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;opacity:0.3;}
-.hero-glow{position:absolute;top:20%;left:10%;width:400px;height:400px;background:radial-gradient(circle,rgba(0,255,157,0.06) 0%,transparent 70%);pointer-events:none;}
-.hero-content{position:relative;max-width:800px;}
-.hero-tag{font-family:var(--mono);font-size:12px;color:var(--green);letter-spacing:0.15em;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
-.hero-tag::before{content:'';display:inline-block;width:20px;height:1px;background:var(--green);}
-.hero-name{font-size:clamp(48px,7vw,80px);font-weight:800;line-height:1;color:#fff;margin-bottom:8px;letter-spacing:-0.02em;}
-.hero-name span{color:var(--green);}
-.hero-role{font-family:var(--mono);font-size:16px;color:var(--muted);margin-bottom:24px;}
-.hero-desc{font-size:15px;color:var(--muted);line-height:1.8;max-width:560px;margin-bottom:36px;}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
-.btn-g{padding:12px 24px;background:var(--green);color:#0a0e13;border:none;border-radius:4px;font-size:13px;font-weight:700;font-family:var(--sans);cursor:pointer;text-decoration:none;letter-spacing:0.05em;transition:all 0.2s;}
-.btn-g:hover{background:#fff;}
-.btn-o{padding:12px 24px;background:transparent;color:var(--green);border:1px solid var(--green);border-radius:4px;font-size:13px;font-weight:500;font-family:var(--sans);cursor:pointer;text-decoration:none;letter-spacing:0.05em;transition:all 0.2s;}
-.btn-o:hover{background:rgba(0,255,157,0.08);}
-.stats-bar{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 40px;display:flex;gap:0;justify-content:center;flex-wrap:wrap;}
-.stat-item{text-align:center;padding:12px 32px;border-right:1px solid var(--border);}
-.stat-item:last-child{border-right:none;}
-.stat-num{font-family:var(--mono);font-size:26px;color:var(--green);}
-.stat-label{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:0.05em;}
-section{padding:80px 40px;max-width:1100px;margin:0 auto;}
-.section-header{display:flex;align-items:center;gap:16px;margin-bottom:48px;}
-.section-num{font-family:var(--mono);font-size:13px;color:var(--green);}
-.section-title{font-size:28px;font-weight:700;color:#fff;letter-spacing:-0.01em;}
-.section-line{flex:1;height:1px;background:var(--border);}
-/* EXPERIENCE */
-.exp-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:28px;margin-bottom:16px;transition:border-color 0.2s;}
-.exp-card:hover{border-color:var(--green);}
-.exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;flex-wrap:wrap;gap:8px;}
-.exp-title{font-size:16px;font-weight:700;color:#fff;}
-.exp-company{font-size:13px;color:var(--green);margin-top:2px;font-family:var(--mono);}
-.exp-date{font-family:var(--mono);font-size:11px;color:var(--muted);background:var(--bg3);padding:4px 10px;border-radius:20px;border:1px solid var(--border);}
-.exp-list{list-style:none;margin-top:12px;}
-.exp-list li{font-size:13px;color:var(--muted);line-height:1.7;padding:4px 0;padding-left:16px;position:relative;}
-.exp-list li::before{content:'>';color:var(--green);position:absolute;left:0;font-family:var(--mono);}
-/* PROJECTS */
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
-.proj-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:24px;transition:border-color 0.2s;}
-.proj-card:hover{border-color:var(--green);}
-.proj-icon{font-family:var(--mono);font-size:11px;color:var(--green);margin-bottom:12px;letter-spacing:0.1em;}
-.proj-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:10px;}
-.proj-desc{font-size:13px;color:var(--muted);line-height:1.7;}
-.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
-.proj-tag{font-family:var(--mono);font-size:10px;padding:3px 10px;background:rgba(0,255,157,0.06);border:1px solid rgba(0,255,157,0.2);border-radius:20px;color:var(--green);}
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
-.skill-card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:20px;transition:border-color 0.2s;}
-.skill-card:hover{border-color:var(--green);}
-.skill-icon{font-family:var(--mono);font-size:18px;color:var(--green);margin-bottom:12px;}
-.skill-name{font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;}
-.skill-tools{font-size:12px;color:var(--muted);line-height:1.6;}
-.tools-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px;}
-.tool-pill{font-family:var(--mono);font-size:11px;padding:5px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:20px;color:var(--text);transition:all 0.2s;}
-.tool-pill:hover{border-color:var(--green);color:var(--green);}
-/* CERTS */
-.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
-.cert-card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:20px 24px;display:flex;align-items:center;gap:16px;transition:border-color 0.2s;}
-.cert-card:hover{border-color:var(--green);}
-.cert-badge{width:44px;height:44px;background:rgba(0,255,157,0.1);border:1px solid rgba(0,255,157,0.3);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--green);text-align:center;flex-shrink:0;line-height:1.2;}
-.cert-name{font-size:14px;font-weight:600;color:#fff;margin-bottom:3px;}
-.cert-status{font-size:12px;color:var(--muted);}
-.cert-status.active{color:var(--green);}
-.cert-status.pursuing{color:#f59e0b;}
-/* EDUCATION */
-.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
-.edu-card{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:20px 24px;transition:border-color 0.2s;}
-.edu-card:hover{border-color:var(--green);}
-.edu-year{font-family:var(--mono);font-size:11px;color:var(--green);margin-bottom:8px;}
-.edu-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;}
-.edu-inst{font-size:12px;color:var(--muted);}
-/* THM */
-.thm-card{background:var(--bg2);border:1px solid var(--green);border-radius:8px;padding:32px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;}
-.thm-stats{display:flex;gap:32px;margin-top:20px;flex-wrap:wrap;}
-.thm-stat .num{font-family:var(--mono);font-size:22px;color:var(--green);}
-.thm-stat .lbl{font-size:12px;color:var(--muted);margin-top:2px;}
-.thm-badge{background:rgba(0,255,157,0.08);border:1px solid rgba(0,255,157,0.2);border-radius:6px;padding:16px 20px;text-align:center;}
-.thm-badge-num{font-family:var(--mono);font-size:36px;color:var(--green);}
-.thm-badge-label{font-size:11px;color:var(--muted);margin-top:4px;}
-/* CONTACT */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
-.contact-info{display:flex;flex-direction:column;gap:20px;}
-.contact-row{display:flex;align-items:center;gap:14px;}
-.contact-icon{width:40px;height:40px;background:rgba(0,255,157,0.08);border:1px solid rgba(0,255,157,0.2);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
-.contact-label{font-size:12px;color:var(--muted);margin-bottom:2px;}
-.contact-val{font-size:14px;color:var(--text);}
-.contact-val a{color:var(--green);text-decoration:none;}
-.avail-box{background:rgba(0,255,157,0.05);border:1px solid rgba(0,255,157,0.2);border-radius:6px;padding:20px;margin-top:8px;}
-.avail-dot{display:inline-block;width:8px;height:8px;background:var(--green);border-radius:50%;margin-right:8px;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
-footer{text-align:center;padding:32px 40px;border-top:1px solid var(--border);font-family:var(--mono);font-size:12px;color:var(--muted);}
-.blink{animation:blink 1s step-end infinite;}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
-.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
-.fade-in.visible{opacity:1;transform:translateY(0);}
-.award-banner{background:linear-gradient(135deg,rgba(255,215,0,0.08),rgba(255,215,0,0.03));border:1px solid rgba(255,215,0,0.3);border-radius:8px;padding:20px 24px;display:flex;align-items:center;gap:16px;margin-bottom:24px;}
-.award-icon{font-size:32px;}
-.award-title{font-size:15px;font-weight:700;color:var(--gold);}
-.award-sub{font-size:12px;color:var(--muted);margin-top:2px;}
-@media(max-width:768px){
-  nav{padding:12px 16px;}
-  .nav-links{gap:14px;}
-  .hero{padding:90px 20px 40px;}
-  .stats-bar{padding:16px;}
-  .stat-item{border-right:none;border-bottom:1px solid var(--border);padding:10px 16px;width:50%;}
-  section{padding:60px 20px;}
-  .contact-grid{grid-template-columns:1fr;}
-  .thm-card{grid-template-columns:1fr;}
-  .exp-header{flex-direction:column;}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Optimization -->
+  <title>Febin Sani | SOC Analyst & Cybersecurity Professional</title>
+  <meta name="description" content="Portfolio of Febin Sani, a SOC Analyst, Ethical Hacker, and Cybersecurity Researcher. Transitioned from Civil Engineering to Cybersecurity, ranking Top 20 in India on TryHackMe.">
+  <meta name="keywords" content="Febin Sani, Cybersecurity Portfolio, SOC Analyst, Ethical Hacker, Wazuh SIEM, Splunk, MITRE ATT&CK, Cyber Defense Training">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Febin Sani | SOC Analyst & Cybersecurity Specialist">
+  <meta property="og:description" content="Explore my interactive portfolio featuring a professional query console, live SOC simulator, and declassified audit reports.">
+  <meta property="og:type" content="website">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="index.css">
 </head>
-<body>
+<body class="theme-cyan">
 
-<nav>
-  <div class="nav-logo">&gt; febin_sani<span class="blink">_</span></div>
-  <div class="nav-links">
-    <a href="#about">about</a>
-    <a href="#experience">experience</a>
-    <a href="#projects">projects</a>
-    <a href="#skills">skills</a>
-    <a href="#certs">certs</a>
-    <a href="#tryhackme">tryhackme</a>
-    <a href="#contact">contact</a>
-  </div>
-</nav>
+  <!-- Background Connecting Node Network -->
+  <canvas id="network-canvas"></canvas>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-content fade-in visible">
-    <div class="hero-tag">SOC Analyst &amp; Cybersecurity Professional</div>
-    <h1 class="hero-name">Febin<br><span>Sani</span></h1>
-    <div class="hero-role">$ Ethical Hacker | Security Mentor | Red Team Trainer_</div>
-    <p class="hero-desc">Detail-oriented SOC Analyst with expertise in threat detection, incident response, SIEM tools, and MITRE ATT&CK framework. Cybersecurity Researcher at RedTeam Hacker Academy. Top 20 in India on TryHackMe with 1050+ labs completed.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-g">Get In Touch</a>
-      <a href="#projects" class="btn-o">View Projects</a>
-    </div>
-  </div>
-</div>
-
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stat-item"><div class="stat-num">1050+</div><div class="stat-label">Labs Completed</div></div>
-  <div class="stat-item"><div class="stat-num">Top 20</div><div class="stat-label">India Ranking</div></div>
-  <div class="stat-item"><div class="stat-num">Top 200</div><div class="stat-label">Global Ranking</div></div>
-  <div class="stat-item"><div class="stat-num">2 Yrs</div><div class="stat-label">Experience</div></div>
-  <div class="stat-item"><div class="stat-num">CEH</div><div class="stat-label">Certified</div></div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-header fade-in">
-    <span class="section-num">01.</span>
-    <h2 class="section-title">About Me</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="fade-in" style="max-width:700px;">
-    <div class="award-banner">
-      <div class="award-icon">🏆</div>
-      <div>
-        <div class="award-title">Best Trainer Award</div>
-        <div class="award-sub">RedTeam Hacker Academy — Kerala, India</div>
-      </div>
-    </div>
-    <p style="font-size:15px;color:#94a3b8;line-height:1.9;margin-bottom:16px;">
-      I'm <strong style="color:#fff;">Febin Sani</strong>, a SOC Analyst and Cybersecurity Researcher based in Kothamangalam, Cochin. I work at RedTeam Hacker Academy where I develop and deliver cybersecurity training, conduct penetration tests, and mentor aspiring security professionals.
-    </p>
-    <p style="font-size:15px;color:#94a3b8;line-height:1.9;margin-bottom:24px;">
-      Certified Ethical Hacker (CEH), pursuing CompTIA Security+. Proficient in Wazuh, Splunk, Wireshark, MITRE ATT&CK, and hands-on threat hunting. My TryHackMe profile (1050+ labs, Top 20 India) reflects my passion for continuous learning.
-    </p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <a href="https://www.linkedin.com/in/febinnsani/" target="_blank" class="btn-o" style="font-size:12px;padding:8px 16px;">LinkedIn ↗</a>
-      <a href="https://tryhackme.com/p/NDFS" target="_blank" class="btn-o" style="font-size:12px;padding:8px 16px;">TryHackMe ↗</a>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience" style="background:var(--bg2);max-width:100%;padding:80px 0;">
-  <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
-    <div class="section-header fade-in">
-      <span class="section-num">02.</span>
-      <h2 class="section-title">Experience</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="exp-card fade-in">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title">Cybersecurity Researcher &amp; Trainer</div>
-          <div class="exp-company">RedTeam Hacker Academy — Kerala, India</div>
-        </div>
-        <div class="exp-date">Aug 2024 – Present</div>
-      </div>
-      <ul class="exp-list">
-        <li>Developed and delivered customized cybersecurity training including hands-on labs, workshops, and corporate sessions</li>
-        <li>Executed ethical hacking operations — penetration testing, network defense, malware analysis, and incident response</li>
-        <li>Conducted certification preparation programs for CompTIA Security+ and CEH aspirants</li>
-        <li>Created interactive training modules using virtual labs, CTF exercises, and simulation environments</li>
-        <li>Awarded <strong style="color:var(--gold);">Best Trainer</strong> for exceptional teaching performance and student outcomes</li>
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <a href="#" class="logo">
+      <span>&gt;</span> febin_sani<span class="status-dot"></span>
+    </a>
+    
+    <div class="nav-right-container">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">about</a></li>
+        <li><a href="#experience">experience</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#simulator">simulator</a></li>
+        <li><a href="#projects">projects</a></li>
+        <li><a href="#certs">certs</a></li>
+        <li><a href="#tryhackme">tryhackme</a></li>
+        <li><a href="#contact">contact</a></li>
       </ul>
-    </div>
-  </div>
-</section>
+      
+      <!-- Theme Accent Selector -->
+      <div class="theme-picker">
+        <span class="theme-dot dot-cyan active" data-theme="theme-cyan" title="Cyan Accent"></span>
+        <span class="theme-dot dot-green" data-theme="theme-green" title="Green Accent"></span>
+        <span class="theme-dot dot-amber" data-theme="theme-amber" title="Amber Accent"></span>
+      </div>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-header fade-in">
-    <span class="section-num">03.</span>
-    <h2 class="section-title">Projects</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="proj-grid fade-in">
-    <div class="proj-card">
-      <div class="proj-icon">// PROJECT_01</div>
-      <div class="proj-title">Wazuh SIEM Dashboard Implementation</div>
-      <div class="proj-desc">Deployed and customized a Wazuh SIEM dashboard for proactive threat detection and incident management. Integrated system logs and threat intelligence feeds for comprehensive security monitoring.</div>
-      <div class="proj-tags">
-        <span class="proj-tag">Wazuh</span>
-        <span class="proj-tag">SIEM</span>
-        <span class="proj-tag">Log Analysis</span>
-        <span class="proj-tag">Threat Detection</span>
-      </div>
+      <!-- Audio Synthesizer Toggle -->
+      <button id="sound-toggle" class="btn btn-tertiary glow-text" style="padding: 6px 12px; font-size: 0.72rem; border-radius: 4px; font-family: var(--font-mono);">
+        🔇 MUTED
+      </button>
+      <button class="nav-menu-btn" id="nav-menu-btn">☰</button>
     </div>
-    <div class="proj-card">
-      <div class="proj-icon">// PROJECT_02</div>
-      <div class="proj-title">Vulnerable Machine for Cybersecurity Training</div>
-      <div class="proj-desc">Built a custom vulnerable virtual machine simulating real-world penetration testing and incident handling exercises. Used for hands-on training of cybersecurity students at RedTeam Hacker Academy.</div>
-      <div class="proj-tags">
-        <span class="proj-tag">VirtualBox</span>
-        <span class="proj-tag">Pentesting</span>
-        <span class="proj-tag">CTF</span>
-        <span class="proj-tag">Training</span>
-      </div>
-    </div>
-    <div class="proj-card">
-      <div class="proj-icon">// PROJECT_03</div>
-      <div class="proj-title">SOC Home Lab Setup</div>
-      <div class="proj-desc">Built a self-hosted SOC home lab with real-world threat detection and triage workflows. Simulated attack scenarios using MITRE ATT&CK framework for hands-on incident response practice.</div>
-      <div class="proj-tags">
-        <span class="proj-tag">Elastic Stack</span>
-        <span class="proj-tag">MITRE ATT&CK</span>
-        <span class="proj-tag">IDS/IPS</span>
-        <span class="proj-tag">SOC</span>
-      </div>
-    </div>
-    <div class="proj-card">
-      <div class="proj-icon">// PROJECT_04</div>
-      <div class="proj-title">TryHackMe CTF Campaigns</div>
-      <div class="proj-desc">Completed 1050+ labs and CTF challenges on TryHackMe focusing on threat analysis, SIEM, malware investigation, and SOC triage. Achieved Diamond League ranking and Top 20 in India.</div>
-      <div class="proj-tags">
-        <span class="proj-tag">TryHackMe</span>
-        <span class="proj-tag">CTF</span>
-        <span class="proj-tag">Malware Analysis</span>
-        <span class="proj-tag">SOC Triage</span>
-      </div>
-    </div>
-  </div>
-</section>
+  </nav>
 
-<!-- SKILLS -->
-<section id="skills" style="background:var(--bg2);max-width:100%;padding:80px 0;">
-  <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
-    <div class="section-header fade-in">
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="hero-container">
+      <div class="hero-text">
+        <div class="hero-tagline">
+          <span class="status-dot"></span> Ready for Incident Triage
+        </div>
+        <h1 class="hero-title">Febin <span>Sani</span></h1>
+        <div class="hero-subtitle">$ SOC Analyst | Security Mentor | Threat Hunter_</div>
+        <p class="hero-description">
+          Welcome! I am a security researcher and SOC trainer specializing in threat analysis, Wazuh configurations, Splunk search scripts, and incident handling playbooks. I teach defenses by day and hunt bugs by night.
+        </p>
+        <div class="hero-buttons">
+          <a href="#simulator" class="btn btn-primary">Run SOC Simulator</a>
+          <a href="#projects" class="btn btn-secondary">Review Work Samples</a>
+        </div>
+      </div>
+      
+      <!-- Operational Query Console -->
+      <div class="terminal-window scanlines-overlay">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+          </div>
+          <div class="terminal-title">secops_work_query.sh</div>
+          <div></div>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+          <div id="terminal-output" class="terminal-output"></div>
+          <div class="terminal-prompt">
+            <span class="terminal-prompt-sym">$</span>
+            <input type="text" id="terminal-input" class="terminal-input" placeholder="Type 'splunk', 'wazuh', 'script', or 'help'..." autofocus autocomplete="off" spellcheck="false">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HIGHLIGHT METRICS STRIP -->
+  <div class="stats-strip">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">1,050+</div>
+        <div class="stat-desc">TryHackMe Labs</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">#20</div>
+        <div class="stat-desc">India Rank</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">#200</div>
+        <div class="stat-desc">Global Rank</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2+ Yrs</div>
+        <div class="stat-desc">Training & SOC</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">CEH</div>
+        <div class="stat-desc">Certified</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="fade-in-scroll">
+    <div class="section-head">
+      <span class="section-num">01.</span>
+      <h2 class="section-title">My Journey</h2>
+      <div class="section-line"></div>
+    </div>
+    
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="badge-card">
+          <div class="badge-icon">🏆</div>
+          <div class="badge-details">
+            <h4>Best Trainer Award</h4>
+            <p>Awarded by RedTeam Hacker Academy (Kerala, India) for designing exceptional hands-on defense lab models and preparation exercises.</p>
+          </div>
+        </div>
+        
+        <p>
+          My path into security wasn't traditional. I started in engineering, completing an <strong>Associate Degree in Civil Engineering in 2019</strong>. However, my passion for system architectures and understanding how things break drew me into computing.
+        </p>
+        <p>
+          I rebuilt my education from the ground up, earning an <strong>Advanced Diploma in Cyber Defence in 2024</strong>, and I am currently completing my <strong>Bachelor of Computer Applications (BCA)</strong>. During this transition, I spent nights solving challenges on TryHackMe—completing over 1,050 labs to rank #20 in India and #200 globally.
+        </p>
+        <p>
+          Today, as a <strong>Cybersecurity Researcher and Trainer at RedTeam Hacker Academy</strong>, I help student cohorts and corporate teams prepare for certifications (CEH, Security+) and configure Wazuh and Splunk dashboards to secure real-world systems.
+        </p>
+        
+        <div style="display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap;">
+          <a href="https://www.linkedin.com/in/febinnsani/" target="_blank" class="btn btn-secondary">Connect on LinkedIn ↗</a>
+          <a href="https://tryhackme.com/p/NDFS" target="_blank" class="btn btn-tertiary">TryHackMe Profile ↗</a>
+        </div>
+      </div>
+      
+      <!-- Visual Spinning Blueprint Graphics -->
+      <div class="about-visual">
+        <div class="profile-blueprint"></div>
+        <div class="profile-avatar-center">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+          </svg>
+        </div>
+        <span class="visual-decor visual-decor-1">[DEFN_GRID_ON]</span>
+        <span class="visual-decor visual-decor-2">LOC: KERALA, INDIA</span>
+      </div>
+    </div>
+
+    <!-- Active Weekly Operations Ticker -->
+    <div class="ops-ticker">
+      <span class="ops-ticker-tag">LIVE OPS</span>
+      <span>Analyzing threat logs in a home Elastic/Suricata deployment &middot; Authoring CompTIA Security+ SY0-701 walkthrough decks</span>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE SECTION -->
+  <section id="experience" class="fade-in-scroll">
+    <div class="section-head">
+      <span class="section-num">02.</span>
+      <h2 class="section-title">Work Experience</h2>
+      <div class="section-line"></div>
+    </div>
+    
+    <div class="exp-timeline">
+      <div class="timeline-glow"></div>
+      
+      <div class="timeline-item">
+        <div class="timeline-marker"></div>
+        <div class="exp-card">
+          <div class="exp-meta">
+            <div>
+              <h3 class="exp-role">Cybersecurity Researcher &amp; Instructor</h3>
+              <div class="exp-company">RedTeam Hacker Academy — Kerala, India</div>
+            </div>
+            <span class="exp-period">Aug 2024 – Present</span>
+          </div>
+          <ul class="exp-list">
+            <li>Instructed cohorts of security students, guiding them through hands-on labs in network mapping, log auditing, and threat containment.</li>
+            <li>Designed and configured custom vulnerable Virtual Machines to simulate privilege escalation vectors.</li>
+            <li>Authored custom security rules in Wazuh to map threat actions to the MITRE ATT&CK framework.</li>
+            <li>Coordinated preparation workshops for CompTIA Security+ and Certified Ethical Hacker (CEH) candidates, resulting in higher pass rates.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="fade-in-scroll">
+    <div class="section-head">
+      <span class="section-num">03.</span>
+      <h2 class="section-title">Core Skills</h2>
+      <div class="section-line"></div>
+    </div>
+    
+    <div class="skills-wrapper">
+      <div class="skills-grid">
+        <div class="skill-category-card">
+          <div class="skill-category-header">
+            <span class="skill-cat-icon">01</span>
+            <h3 class="skill-cat-title">SOC Operations</h3>
+          </div>
+          <p class="skill-item-tools">Alert triaging, log analysis, mitigation workflow creation, mapping events to MITRE ATT&CK categories, endpoint threat isolation.</p>
+        </div>
+        
+        <div class="skill-category-card">
+          <div class="skill-category-header">
+            <span class="skill-cat-icon">02</span>
+            <h3 class="skill-cat-title">SIEM Configuration</h3>
+          </div>
+          <p class="skill-item-tools">Writing custom Wazuh XML alerts, designing Splunk dashboards, forwarding Windows Event logs (Sysmon) and Linux syslog streams.</p>
+        </div>
+        
+        <div class="skill-category-card">
+          <div class="skill-category-header">
+            <span class="skill-cat-icon">03</span>
+            <h3 class="skill-cat-title">Threat Investigation</h3>
+          </div>
+          <p class="skill-item-tools">Packet capture analysis (Wireshark syntax), email header auditing, memory image investigations using Volatility tools.</p>
+        </div>
+        
+        <div class="skill-category-card">
+          <div class="skill-category-header">
+            <span class="skill-cat-icon">04</span>
+            <h3 class="skill-cat-title">Penetration Testing</h3>
+          </div>
+          <p class="skill-item-tools">Security assessments, local exploitation, privilege escalation checks, writing custom audit check scripts.</p>
+        </div>
+      </div>
+      
+      <div class="tools-showcase">
+        <div class="tools-title-row">
+          <h3>Tools &amp; Infrastructure</h3>
+          <span class="tools-filter-desc">// Active Command Suite</span>
+        </div>
+        <div class="tools-pills">
+          <span class="tool-badge">Wazuh SIEM</span>
+          <span class="tool-badge">Splunk</span>
+          <span class="tool-badge">Elastic Stack</span>
+          <span class="tool-badge">Wireshark</span>
+          <span class="tool-badge">Sysmon</span>
+          <span class="tool-badge">Volatility</span>
+          <span class="tool-badge">Autopsy</span>
+          <span class="tool-badge">Nmap</span>
+          <span class="tool-badge">Burp Suite</span>
+          <span class="tool-badge">Metasploit</span>
+          <span class="tool-badge">Nessus Scanner</span>
+          <span class="tool-badge">Snort IDS</span>
+          <span class="tool-badge">Python</span>
+          <span class="tool-badge">Bash Scripting</span>
+          <span class="tool-badge">Kali Linux</span>
+          <span class="tool-badge">SQLMap</span>
+          <span class="tool-badge">Gobuster</span>
+          <span class="tool-badge">OWASP ZAP</span>
+        </div>
+      </div>
+
+      <!-- Security+ Exam Quiz Sandbox -->
+      <div class="quiz-widget">
+        <div class="quiz-info">
+          <h3>
+            CompTIA Security+ SY0-701 Prep
+            <span class="quiz-badge-icon">MOCK MAPPING</span>
+          </h3>
+          <p>
+            I am currently preparing for the Security+ certification. Test your own knowledge—or check my logic—with these interactive exam prep questions on threat scenarios.
+          </p>
+          <div class="quiz-score-display">
+            Score: <span id="quiz-score" style="color: var(--accent);">0</span>/3 | Question: <span id="quiz-q-num">1</span>
+          </div>
+        </div>
+        
+        <div class="quiz-card">
+          <div class="quiz-card-header">
+            <span>QUESTION WORKSPACE</span>
+            <span id="quiz-topic">THREATS & VULNERABILITIES</span>
+          </div>
+          <div class="quiz-question" id="quiz-question-text">
+            Loading question...
+          </div>
+          <div class="quiz-options" id="quiz-options-container">
+            <!-- Populated dynamically -->
+          </div>
+          <div class="quiz-feedback" id="quiz-feedback"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOC SIMULATOR SECTION -->
+  <section id="simulator" class="fade-in-scroll">
+    <div class="section-head">
       <span class="section-num">04.</span>
-      <h2 class="section-title">Skills &amp; Expertise</h2>
+      <h2 class="section-title">Incident Response Sandbox</h2>
       <div class="section-line"></div>
     </div>
-    <div class="skills-grid fade-in">
-      <div class="skill-card">
-        <div class="skill-icon">[01]</div>
-        <div class="skill-name">SOC Analysis</div>
-        <div class="skill-tools">Security monitoring, alert triage, incident response, escalation, 24×7 SOC ops</div>
+    
+    <div class="sim-grid">
+      <div class="sim-info">
+        <p>
+          Test your defense capabilities. This interactive module simulates a live server breach. Analyze the event telemetry stream on the right, make critical triage decisions, and locate the root cause vulnerability.
+        </p>
+        <div class="sim-instructions">
+          <h5>Triage Instructions</h5>
+          <ul>
+            <li>Inspect the raw log records inside the panel.</li>
+            <li>Select the correct containment option to stop lateral movement.</li>
+            <li>Investigate the backdoor persistence vector to secure the system.</li>
+          </ul>
+        </div>
       </div>
-      <div class="skill-card">
-        <div class="skill-icon">[02]</div>
-        <div class="skill-name">SIEM &amp; Log Analysis</div>
-        <div class="skill-tools">Wazuh, Splunk, Elastic Stack — Windows, Linux &amp; network log analysis</div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">[03]</div>
-        <div class="skill-name">Threat Intelligence</div>
-        <div class="skill-tools">IOC identification, threat hunting, MITRE ATT&CK mapping, false positive analysis</div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">[04]</div>
-        <div class="skill-name">Penetration Testing</div>
-        <div class="skill-tools">Web app, network &amp; system pentesting — recon to reporting</div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">[05]</div>
-        <div class="skill-name">Malware &amp; Phishing Analysis</div>
-        <div class="skill-tools">Static &amp; dynamic analysis, EDR, endpoint threat detection</div>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon">[06]</div>
-        <div class="skill-name">Network Security</div>
-        <div class="skill-tools">TCP/IP, DNS, Firewall, IDS/IPS, traffic analysis, Wireshark</div>
-      </div>
-    </div>
-    <div style="margin-top:32px;">
-      <p style="font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;font-family:var(--mono);">// Tools &amp; Technologies</p>
-      <div class="tools-grid fade-in">
-        <span class="tool-pill">Wazuh</span><span class="tool-pill">Splunk</span><span class="tool-pill">Elastic Stack</span>
-        <span class="tool-pill">Wireshark</span><span class="tool-pill">Nmap</span><span class="tool-pill">Burp Suite</span>
-        <span class="tool-pill">Metasploit</span><span class="tool-pill">Nessus</span><span class="tool-pill">Kali Linux</span>
-        <span class="tool-pill">Nikto</span><span class="tool-pill">Hydra</span><span class="tool-pill">John the Ripper</span>
-        <span class="tool-pill">SQLMap</span><span class="tool-pill">Gobuster</span><span class="tool-pill">Aircrack-ng</span>
-        <span class="tool-pill">Netcat</span><span class="tool-pill">Shodan</span><span class="tool-pill">Volatility</span>
-        <span class="tool-pill">Autopsy</span><span class="tool-pill">Snort</span><span class="tool-pill">EDR Solutions</span>
-        <span class="tool-pill">Python</span><span class="tool-pill">Bash</span><span class="tool-pill">OWASP ZAP</span>
+      
+      <!-- Interactive SIEM Simulator Workspace -->
+      <div class="sim-console scanlines-overlay">
+        <div class="sim-console-header">
+          <div class="sim-status-indicator">
+            <span class="sim-indicator-light" id="sim-indicator-light"></span>
+            <span>SIEM INCIDENT TRIGGER</span>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">HOST-17</span>
+        </div>
+        
+        <div class="sim-console-body" id="sim-console-body">
+          <div class="sim-alert-panel" id="sim-alert-panel">
+            <div class="sim-alert-header">
+              <span class="sim-alert-title" id="sim-alert-title">TELEMETRY LOCK</span>
+              <span class="sim-alert-code" id="sim-alert-code">---</span>
+            </div>
+            <div class="sim-alert-logs" id="sim-alert-logs">Connecting to log forwarder...</div>
+          </div>
+          
+          <div class="sim-action-choices" id="sim-action-choices">
+            <!-- Dynamically populated in index.js -->
+          </div>
+          
+          <div class="sim-feedback" id="sim-feedback"></div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CERTIFICATIONS -->
-<section id="certs">
-  <div class="section-header fade-in">
-    <span class="section-num">05.</span>
-    <h2 class="section-title">Certifications &amp; Awards</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="certs-grid fade-in">
-    <div class="cert-card" style="border-color:rgba(255,215,0,0.4);">
-      <div class="cert-badge" style="background:rgba(255,215,0,0.1);border-color:rgba(255,215,0,0.4);font-size:20px;color:var(--gold);">🏆</div>
-      <div>
-        <div class="cert-name" style="color:var(--gold);">Best Trainer Award</div>
-        <div class="cert-status active">✓ RedTeam Hacker Academy</div>
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="fade-in-scroll">
+    <div class="section-head">
+      <span class="section-num">05.</span>
+      <h2 class="section-title">Technical Projects</h2>
+      <div class="section-line"></div>
+    </div>
+    
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="proj-top">
+          <div class="proj-folder-row">
+            <div class="proj-id">// Wazuh-SIEM-01</div>
+            <div class="proj-links">
+              <!-- Inline report trigger -->
+              <span class="proj-link open-report" data-project="wazuh">Inspect Audit Report ↗</span>
+            </div>
+          </div>
+          <h3 class="proj-title">Wazuh SIEM Log Aggregation</h3>
+          <p class="proj-desc">
+            Constructed a centralized Wazuh logging cluster. Authored decoders and alerts, mapped log alerts to MITRE tactics, and created visualization dashboards for security metrics.
+          </p>
+        </div>
+        <div class="proj-tags-list">
+          <span class="proj-tag">Wazuh</span>
+          <span class="proj-tag">SIEM</span>
+          <span class="proj-tag">MITRE ATT&CK</span>
+          <span class="proj-tag">Threat Hunting</span>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="proj-top">
+          <div class="proj-folder-row">
+            <div class="proj-id">// Vulnerable-VM-02</div>
+            <div class="proj-links">
+              <span class="proj-link open-report" data-project="vm">Inspect Audit Report ↗</span>
+            </div>
+          </div>
+          <h3 class="proj-title">Vulnerable Machine Lab Design</h3>
+          <p class="proj-desc">
+            Created a custom Linux-based vulnerable VM simulating real-world configuration errors and weak privileges. Used at RedTeam Hacker Academy to teach local enumeration.
+          </p>
+        </div>
+        <div class="proj-tags-list">
+          <span class="proj-tag">VirtualBox</span>
+          <span class="proj-tag">CTF Design</span>
+          <span class="proj-tag">PrivEsc</span>
+          <span class="proj-tag">Cyber Training</span>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <div class="proj-top">
+          <div class="proj-folder-row">
+            <div class="proj-id">// SOC-Home-Lab-03</div>
+            <div class="proj-links">
+              <span class="proj-link open-report" data-project="lab">Inspect Audit Report ↗</span>
+            </div>
+          </div>
+          <h3 class="proj-title">SOC Laboratory Setup</h3>
+          <p class="proj-desc">
+            Deployed a self-hosted SOC lab featuring Elastic Stack and Suricata. Simulated brute force and SQL injection attacks to verify detection rules and logging filters.
+          </p>
+        </div>
+        <div class="proj-tags-list">
+          <span class="proj-tag">ELK Stack</span>
+          <span class="proj-tag">Suricata IDS</span>
+          <span class="proj-tag">Sysmon</span>
+          <span class="proj-tag">Threat Detection</span>
+        </div>
       </div>
     </div>
-    <div class="cert-card">
-      <div class="cert-badge">CEH</div>
-      <div>
-        <div class="cert-name">Certified Ethical Hacker</div>
-        <div class="cert-status active">✓ EC-Council | Feb 2024</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-badge">SEC+</div>
-      <div>
-        <div class="cert-name">CompTIA Security+ (SY0-701)</div>
-        <div class="cert-status pursuing">⟳ Currently Pursuing</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-badge">ADCD</div>
-      <div>
-        <div class="cert-name">Advanced Diploma in Cyber Defence</div>
-        <div class="cert-status active">✓ November 2024</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-badge">THM</div>
-      <div>
-        <div class="cert-name">TryHackMe Learning Paths</div>
-        <div class="cert-status active">✓ Multiple Paths Completed</div>
-      </div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-badge">FREE</div>
-      <div>
-        <div class="cert-name">Various Free Certifications</div>
-        <div class="cert-status active">✓ Multiple Completed</div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- EDUCATION -->
-<section style="background:var(--bg2);max-width:100%;padding:80px 0;">
-  <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
-    <div class="section-header fade-in">
+  <!-- CERTIFICATIONS SECTION -->
+  <section id="certs" class="fade-in-scroll">
+    <div class="section-head">
       <span class="section-num">06.</span>
-      <h2 class="section-title">Education</h2>
+      <h2 class="section-title">Certifications</h2>
       <div class="section-line"></div>
     </div>
-    <div class="edu-grid fade-in">
-      <div class="edu-card">
-        <div class="edu-year">Expected 2025</div>
-        <div class="edu-title">Bachelor of Computer Applications (BCA)</div>
-        <div class="edu-inst">Currently pursuing</div>
+    
+    <div class="certs-grid">
+      <div class="cert-card featured">
+        <div class="cert-icon">AWARD</div>
+        <div class="cert-info">
+          <h4>Best Trainer Award</h4>
+          <div class="cert-details">
+            <span class="cert-status"><span class="status-check">✓</span> RedTeam Hacker Academy</span>
+          </div>
+        </div>
       </div>
-      <div class="edu-card">
-        <div class="edu-year">November 2024</div>
-        <div class="edu-title">Advanced Diploma in Cyber Defence</div>
-        <div class="edu-inst">Cybersecurity Specialization</div>
+      
+      <div class="cert-card">
+        <div class="cert-icon">CEH</div>
+        <div class="cert-info">
+          <h4>Certified Ethical Hacker</h4>
+          <div class="cert-details">
+            <span class="cert-status"><span class="status-check">✓</span> EC-Council | Feb 2024</span>
+          </div>
+        </div>
       </div>
-      <div class="edu-card">
-        <div class="edu-year">May 2019</div>
-        <div class="edu-title">Associative Degree in Civil Engineering</div>
-        <div class="edu-inst">Engineering Foundation</div>
+      
+      <div class="cert-card">
+        <div class="cert-icon">SEC+</div>
+        <div class="cert-info">
+          <h4>CompTIA Security+ (SY0-701)</h4>
+          <div class="cert-details">
+            <span class="cert-status"><span class="status-pursuing">⟳</span> Preparation Ongoing</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cert-card">
+        <div class="cert-icon">ADCD</div>
+        <div class="cert-info">
+          <h4>Adv. Diploma in Cyber Defence</h4>
+          <div class="cert-details">
+            <span class="cert-status"><span class="status-check">✓</span> November 2024</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- TRYHACKME -->
-<section id="tryhackme">
-  <div class="section-header fade-in">
-    <span class="section-num">07.</span>
-    <h2 class="section-title">TryHackMe Achievements</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="thm-card fade-in">
-    <div>
-      <p style="font-family:var(--mono);font-size:12px;color:var(--green);margin-bottom:8px;">// Profile: NDFS</p>
-      <h3 style="font-size:20px;font-weight:700;color:#fff;margin-bottom:8px;">Elite Hacker Status</h3>
-      <p style="font-size:14px;color:var(--muted);line-height:1.7;max-width:480px;">Consistently ranked among the top security professionals on TryHackMe's global platform. Completed 1050+ hands-on labs across offensive and defensive security. Achieved Bronze, Silver, Gold &amp; Diamond League rankings.</p>
-      <div class="thm-stats">
-        <div class="thm-stat"><div class="num">1050+</div><div class="lbl">Labs Completed</div></div>
-        <div class="thm-stat"><div class="num">Top 20</div><div class="lbl">India</div></div>
-        <div class="thm-stat"><div class="num">Top 200</div><div class="lbl">Worldwide</div></div>
-        <div class="thm-stat"><div class="num">💎</div><div class="lbl">Diamond League</div></div>
-      </div>
-      <a href="https://tryhackme.com/p/NDFS" target="_blank" class="btn-o" style="display:inline-block;margin-top:24px;font-size:12px;padding:8px 16px;">View Profile ↗</a>
+  <!-- TRYHACKME DASHBOARD SECTION -->
+  <section id="tryhackme" class="fade-in-scroll">
+    <div class="section-head">
+      <span class="section-num">07.</span>
+      <h2 class="section-title">TryHackMe Achievements</h2>
+      <div class="section-line"></div>
     </div>
-    <div class="thm-badge">
-      <div class="thm-badge-num">#20</div>
-      <div class="thm-badge-label">India Rank</div>
-      <div style="margin-top:16px;border-top:1px solid rgba(0,255,157,0.2);padding-top:16px;">
-        <div class="thm-badge-num" style="font-size:28px;">#200</div>
-        <div class="thm-badge-label">Global Rank</div>
+    
+    <div class="thm-card">
+      <div class="thm-left">
+        <h3>Consistent Cyber-Range Solves</h3>
+        <p>
+          TryHackMe is my continuous learning sandbox. Solving over 1,050 security boxes has allowed me to map lateral escalation paths, analyze system memories, and configure complex log detection setups.
+        </p>
+        <div class="thm-metrics-grid">
+          <div class="thm-metric-item">
+            <span class="thm-metric-num">1,050+</span>
+            <span class="thm-metric-lbl">Labs Completed</span>
+          </div>
+          <div class="thm-metric-item">
+            <span class="thm-metric-num">Top 20</span>
+            <span class="thm-metric-lbl">India Standing</span>
+          </div>
+          <div class="thm-metric-item">
+            <span class="thm-metric-num">Top 200</span>
+            <span class="thm-metric-lbl">Global Ranking</span>
+          </div>
+          <div class="thm-metric-item">
+            <span class="thm-metric-num">Diamond</span>
+            <span class="thm-metric-lbl">League Tier</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="thm-right">
+        <!-- Radar Sweep Interface -->
+        <div class="thm-radar-hud">
+          <span class="thm-hud-rank">#20</span>
+          <span class="thm-hud-label">India</span>
+          <span class="thm-hud-subrank">#200 Global</span>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact" style="background:var(--bg2);max-width:100%;padding:80px 0;">
-  <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
-    <div class="section-header fade-in">
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="fade-in-scroll">
+    <div class="section-head">
       <span class="section-num">08.</span>
-      <h2 class="section-title">Get In Touch</h2>
+      <h2 class="section-title">Contact</h2>
       <div class="section-line"></div>
     </div>
-    <div class="contact-grid fade-in">
+    
+    <div class="contact-grid">
       <div class="contact-info">
-        <div class="contact-row">
-          <div class="contact-icon">📧</div>
-          <div><div class="contact-label">Email</div><div class="contact-val"><a href="mailto:febinnsani@gmail.com">febinnsani@gmail.com</a></div></div>
+        <div class="contact-intro">
+          <p>
+            Whether you are looking for a SOC analyst, a technical trainer to upskill your security team, or wish to review my log correlation rules, feel free to reach out.
+          </p>
         </div>
-        <div class="contact-row">
-          <div class="contact-icon">📱</div>
-          <div><div class="contact-label">Phone</div><div class="contact-val"><a href="tel:+919497293182">+91 9497293182</a></div></div>
+        
+        <div class="contact-channels">
+          <div class="contact-channel-row">
+            <div class="contact-channel-icon">✉</div>
+            <div class="contact-channel-details">
+              <label>Direct Email</label>
+              <a href="mailto:febinnsani@gmail.com">febinnsani@gmail.com</a>
+            </div>
+          </div>
+          
+          <div class="contact-channel-row">
+            <div class="contact-channel-icon">☎</div>
+            <div class="contact-channel-details">
+              <label>Phone Number</label>
+              <a href="tel:+919497293182">+91 9497293182</a>
+            </div>
+          </div>
+          
+          <div class="contact-channel-row">
+            <div class="contact-channel-icon">⚲</div>
+            <div class="contact-channel-details">
+              <label>Location</label>
+              <span>Kerala, Cochin, India</span>
+            </div>
+          </div>
         </div>
-        <div class="contact-row">
-          <div class="contact-icon">📍</div>
-          <div><div class="contact-label">Location</div><div class="contact-val">Kothamangalam, Cochin, Kerala</div></div>
-        </div>
-        <div class="contact-row">
-          <div class="contact-icon">💼</div>
-          <div><div class="contact-label">LinkedIn</div><div class="contact-val"><a href="https://www.linkedin.com/in/febinnsani/" target="_blank">linkedin.com/in/febinnsani</a></div></div>
-        </div>
-        <div class="avail-box">
-          <p style="font-size:13px;color:#fff;"><span class="avail-dot"></span>Available for mentoring, freelance pentesting &amp; SOC consulting</p>
-          <p style="font-size:12px;color:var(--muted);margin-top:6px;margin-left:16px;">Typically replies within 24 hours</p>
+        
+        <div class="availability-alert">
+          <span class="status-dot"></span>
+          <p>
+            Available for <strong>SOC triage consults</strong>, <strong>log rule tuning</strong>, and <strong>certification training</strong> workshops.
+          </p>
         </div>
       </div>
-      <div>
-        <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px;">Looking for a SOC Analyst, penetration tester, security trainer, or mentor? Let's connect. Always happy to talk cybersecurity!</p>
-        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:20px;font-family:var(--mono);font-size:13px;line-height:2;color:var(--muted);">
-          <span style="color:var(--green);">const</span> febin = {<br>
-          &nbsp;&nbsp;role: <span style="color:#a8dadc;">"SOC Analyst & Trainer"</span>,<br>
-          &nbsp;&nbsp;email: <span style="color:#a8dadc;">"febinnsani@gmail.com"</span>,<br>
-          &nbsp;&nbsp;phone: <span style="color:#a8dadc;">"+91 9497293182"</span>,<br>
-          &nbsp;&nbsp;open_to: <span style="color:#a8dadc;">"freelance &amp; mentoring"</span>,<br>
-          &nbsp;&nbsp;response: <span style="color:#a8dadc;">"within 24hrs"</span><br>
-          };
+      
+      <!-- Clean human contact form -->
+      <div class="contact-form-wrapper">
+        <div class="contact-form-title">
+          <span>CONTACT_GATEWAY.EXE</span>
+          <span style="color: var(--accent);">[READY]</span>
         </div>
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="form-name">Name</label>
+            <input type="text" id="form-name" class="form-control" placeholder="e.g. Sarah Jenkins" required>
+          </div>
+          <div class="form-group">
+            <label for="form-email">Email Address</label>
+            <input type="email" id="form-email" class="form-control" placeholder="e.g. sarah@cybercorp.com" required>
+          </div>
+          <div class="form-group">
+            <label for="form-message">Message</label>
+            <textarea id="form-message" class="form-control" placeholder="Describe your request..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          <div id="form-status" class="form-status"></div>
+        </form>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <p>Designed &amp; built for <span style="color:var(--green);">Febin Sani</span> &nbsp;|&nbsp; SOC Analyst &amp; Cybersecurity Professional &nbsp;|&nbsp; Kerala, India</p>
-</footer>
+  <!-- INTERACTIVE SECURITY AUDIT REPORT MODAL PANEL -->
+  <div class="report-overlay" id="report-overlay"></div>
+  <aside class="report-panel" id="report-panel">
+    <button class="report-close-btn" id="report-close-btn">✕</button>
+    <div class="report-header">
+      <span class="report-tag" id="report-modal-tag">REPORT</span>
+      <h3 class="report-title" id="report-modal-title">Log Aggregation Rule Audit</h3>
+      <div class="report-meta-grid">
+        <div class="report-meta-item"><span>Classification:</span> <strong id="report-modal-class">INTERNAL</strong></div>
+        <div class="report-meta-item"><span>Target:</span> <strong id="report-modal-target">HOST-17</strong></div>
+      </div>
+    </div>
+    <div class="report-body" id="report-modal-body">
+      <!-- Loaded dynamically via JavaScript based on selected project -->
+    </div>
+  </aside>
 
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        Designed &amp; Coded by <span>Febin Sani</span> &copy; 2026
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/febinnsani/" target="_blank" class="social-icon">LinkedIn</a>
+        <a href="https://tryhackme.com/p/NDFS" target="_blank" class="social-icon">TryHackMe</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="index.js"></script>
 </body>
 </html>
