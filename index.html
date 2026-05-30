@@ -37,6 +37,7 @@
         <li><a href="#projects">projects</a></li>
         <li><a href="#certs">certs</a></li>
         <li><a href="#tryhackme">tryhackme</a></li>
+
         <li><a href="#contact">contact</a></li>
       </ul>
       
@@ -282,13 +283,13 @@
         <div class="quiz-info">
           <h3>
             CompTIA Security+ SY0-701 Prep
-            <span class="quiz-badge-icon">MOCK MAPPING</span>
+            <span class="quiz-badge-icon">100 QUESTIONS</span>
           </h3>
           <p>
             I am currently preparing for the Security+ certification. Test your own knowledge—or check my logic—with these interactive exam prep questions on threat scenarios.
           </p>
           <div class="quiz-score-display">
-            Score: <span id="quiz-score" style="color: var(--accent);">0</span>/3 | Question: <span id="quiz-q-num">1</span>
+            Score: <span id="quiz-score" style="color: var(--accent);">0</span>/100 | Question: <span id="quiz-q-num">1</span>
           </div>
         </div>
         
@@ -320,15 +321,26 @@
     <div class="sim-grid">
       <div class="sim-info">
         <p>
-          Test your defense capabilities. This interactive module simulates a live server breach. Analyze the event telemetry stream on the right, make critical triage decisions, and locate the root cause vulnerability.
+          Test your defense capabilities. This interactive module simulates a live server breach. Select a scenario from the control panel below, trigger the alarm threat, and analyze the telemetry data in the dashboard to resolve the incident.
         </p>
         <div class="sim-instructions">
           <h5>Triage Instructions</h5>
           <ul>
-            <li>Inspect the raw log records inside the panel.</li>
-            <li>Select the correct containment option to stop lateral movement.</li>
-            <li>Investigate the backdoor persistence vector to secure the system.</li>
+            <li>Choose a threat scenario from the dropdown.</li>
+            <li>Click **Inject Alarm Threat** to trigger the intrusion logs.</li>
+            <li>Read the logs and select the correct incident containment play.</li>
           </ul>
+        </div>
+        
+        <!-- Live Alert Selector control -->
+        <div style="margin-top: 16px;">
+          <label for="sim-scenario-select" style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); display: block; margin-bottom: 6px; text-transform: uppercase;">// Select Threat Incident</label>
+          <select id="sim-scenario-select" class="form-control" style="font-family: var(--font-mono); font-size: 0.8rem; background: rgba(15, 23, 42, 0.75); color: var(--accent); border-color: var(--border-color); outline: none; width: 100%; max-width: 320px; cursor: pointer; transition: border-color 0.2s;">
+            <option value="ssh">Scenario 1: SSH Brute Force & Backdoor</option>
+            <option value="sqli">Scenario 2: SQL Injection Data Exfiltration</option>
+            <option value="phish">Scenario 3: Ransomware Delivery Script</option>
+          </select>
+          <button id="sim-inject-btn" class="btn btn-secondary" style="margin-top: 12px; padding: 8px 18px; font-size: 0.75rem; font-family: var(--font-mono);">INJECT ALARM THREAT</button>
         </div>
       </div>
       
@@ -337,7 +349,7 @@
         <div class="sim-console-header">
           <div class="sim-status-indicator">
             <span class="sim-indicator-light" id="sim-indicator-light"></span>
-            <span>SIEM INCIDENT TRIGGER</span>
+            <span id="sim-status-title">SIEM TELEMETRY INGEST: OK</span>
           </div>
           <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">HOST-17</span>
         </div>
@@ -345,10 +357,10 @@
         <div class="sim-console-body" id="sim-console-body">
           <div class="sim-alert-panel" id="sim-alert-panel">
             <div class="sim-alert-header">
-              <span class="sim-alert-title" id="sim-alert-title">TELEMETRY LOCK</span>
-              <span class="sim-alert-code" id="sim-alert-code">---</span>
+              <span class="sim-alert-title" id="sim-alert-title">MONITORING</span>
+              <span class="sim-alert-code" id="sim-alert-code">STANDBY</span>
             </div>
-            <div class="sim-alert-logs" id="sim-alert-logs">Connecting to log forwarder...</div>
+            <div class="sim-alert-logs" id="sim-alert-logs">Connecting to syslog agent...</div>
           </div>
           
           <div class="sim-action-choices" id="sim-action-choices">
@@ -532,6 +544,8 @@
     </div>
   </section>
 
+
+
   <!-- CONTACT SECTION -->
   <section id="contact" class="fade-in-scroll">
     <div class="section-head">
@@ -639,6 +653,7 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="questions.js"></script>
   <script src="index.js"></script>
 </body>
 </html>
